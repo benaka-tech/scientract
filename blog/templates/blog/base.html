@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/assets/css/main.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'blog/assets/fonts/icomoon/style.css'%}">
+
+    
+    <link rel="stylesheet" href= "{%  static 'blog/assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/assets/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/assets/css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'blog/assets/css/bootstrap-datepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'blog/assets/fonts/flaticon/font/flaticon.css' %}">
+
+   
+
+
+    <link rel="stylesheet" href="{% static 'blog/assets/css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'blog/assets/css/style.css' %}">
+    
+
+
+
+
+    {% if title %}
+        <title>Scienteract {{ title }}</title>
+    {% else %}
+        <title>Scienterect</title>
+    {% endif %}
+</head>
+
+ 
+  
+    <header class="site-header">
+       <div class="navbar-nav">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" >
+         <img id="logo" src="{% static 'images/logo.png' %}" size="1">
+      <a class="nav-item nav-link" href="{% url 'blog-home1' %}">Scienteract – A Platform for Scientists, Doctors, Entrepreneurs and Academicians to collaborate</a>
+       
+        <div class="container" style="width: auto;">
+
+          
+         
+         
+
+          <a ></a>
+
+           
+          
+         
+                
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+
+              </button>
+              <div class="collapse navbar-collapse" id="navbarToggle">
+             <div class="navbar-nav mr-auto">
+            
+                
+              {% if user.is_authenticated %}
+
+                <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+                <a class="nav-item nav-link" href="{% url 'blog-home' %}">Inbox</a>
+                <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                <a class="nav-item nav-link" href="{% url 'groups:all' %}">Groups</a>
+                <a class="nav-item nav-link" href="{% url 'announement' %}">Post Announement</a>
+                 <a class="nav-item nav-link" href="{% url 'announementlist' %}">Announement</a>
+         
+                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+               
+               {% else %}
+
+           
+                <a class="nav-item nav-link" href="{% url 'blog-home1' %}">Home</a>
+                <a class="nav-item nav-link" href="#section-about" >About Us</a>
+                <a class ="nav-item nav-link"href="#section-our-team" >Our Team</a>
+                <a class ="nav-item nav-link"href="#section-industries" >Experts</a>
+                <a class ="nav-item nav-link"href="#section-contact" class="nav-link">Contact Us</a>
+                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+               
+              {% endif %}
+
+              </div>
+            </div>
+            </div>
+      
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    
+  
+    {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+          {% block content %}{% endblock %}
+        
+        
+    </main>
+
+    
+          
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="{% static 'blog/assets/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'blog/assets/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'blog/assets/js/jquery-ui.js' %}"></script>
+  <script src="{% static 'blog/assets/js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'blog/assets/js/popper.min.js' %}"></script>
+  <script src="{% static 'blog/assets/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'blog/assets/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'blog/assets/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'blog/assets/js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'blog/assets/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'blog/assets/js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'blog/assets/js/aos.js' %}"></script>
+
+  <script src="{% static 'blog/assets/js/main.js' %}"></script>
+
+        <!--<footer class="bottom-bar">
+          <nav align=center class="bottom-bar navbar navbar-expand-md navbar-dark bg-steel fixed-bottom" style="height: 25px;width:100%" >         
+            <font color="white"  >Scientrect All Rights Reserved.</font>               
+      </footer>-->
+
+
+
+
+<div class="bottom-bar fixed-bottom" align=center style="height:25px;width:100%;background-color: #002366;">
+    <font color="white"  >&copy;   Scientrect All Rights Reserved.</font> 
+</div>
+      
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+{% load bootstrap3 %}
+  <div id="divLinks">
+    <div class="column">
+{% for academician in Academician %}
+<div class="card row " style="top:20px;">
+
+
+  <img src="{{academician.image.url}}" alt="John" style="width:100%">
+  <h1>{{academician.user}}</h1>
+  <p class="title"></p>
+  
+    <p class="title">Qualification:-{{academician.qualification}}</p>
+    <p class="title">Occupation:- {{academician.occupation}}</p>
+    <p class="title">Expertise:-{{academician.expertise}}</p>
+   </div>
+</div>
+
+{% endfor %}
+
+
+
+{% endblock content %}
+

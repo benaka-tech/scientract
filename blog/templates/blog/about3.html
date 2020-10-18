@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+{% load bootstrap3 %}
+  <div id="divLinks">
+    <div class="column">
+{% for researchers in Researchers %}
+<div class="card row " style="top:20px;">
+
+
+  <img src="{{researchers.image.url}}" alt="John" style="width:100%">
+  <h1>{{researchers.user}}</h1>
+  <p class="title"></p>
+  
+    <p class="title">Qualification:-{{researchers.qualification }}</p>
+    <p class="title">Occupation:- {{researchers.occupation}}</p>
+    <p class="title">Expertise:-{{researchers.expertise}}</p>
+   </div>
+</div>
+
+{% endfor %}
+
+
+
+{% endblock content %}
+
